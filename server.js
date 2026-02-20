@@ -51,6 +51,7 @@ app.get('/email-banner', (req, res) => {
   }
 
   res.set({
+    'Access-Control-Allow-Origin': '*',
     'Content-Type': 'image/jpeg',
     'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
     'Pragma': 'no-cache',

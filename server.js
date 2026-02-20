@@ -11,8 +11,12 @@ const PORT = process.env.PORT || 3000;
 const BANNER_FILES = ['banner1.jpg', 'banner2.jpg', 'banner3.jpg', 'banner4.jpg', 'banner5.jpg'];
 const BANNERS_DIR = path.join(__dirname, 'public', 'banners');
 
-// Security: helmet
-app.use(helmet());
+// Security: helmet (crossOriginResourcePolicy: false so Outlook can embed image)
+app.use(
+  helmet({
+    crossOriginResourcePolicy: false,
+  })
+);
 
 // Rate limit: 100 requests per minute per IP
 const limiter = rateLimit({
@@ -52,6 +56,7 @@ app.get('/email-banner', (req, res) => {
 
   res.set({
     'Access-Control-Allow-Origin': '*',
+    'Cross-Origin-Resource-Policy': 'cross-origin',
     'Content-Type': 'image/jpeg',
     'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
     'Pragma': 'no-cache',

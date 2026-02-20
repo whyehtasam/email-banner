@@ -1,0 +1,18 @@
+{
+  "name": "email-banner-api",
+  "version": "1.0.0",
+  "description": "Production API for serving rotating email banner images",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.2.0"
+  }
+}
